@@ -10,6 +10,10 @@ var createBrowserHistory = require('history/lib/createBrowserHistory');
 
 var helpers = require('./helpers');
 
+// Firebase
+var Rebase = require('re-base');
+var base = Rebase.createClass('https://catch-of-the-day-d7c40.firebaseio.com/');
+
 /*
   App
 */
@@ -19,6 +23,12 @@ var App = React.createClass({
       fishes: {},
       order: {}
     }
+  },
+  componentDidMount: function() {
+      base.syncState(this.props.params.storeId + '/fishes', {
+          context: this,
+          state: 'fishes'
+      });
   },
   addFish: function(fish) {
     var timestamp = (new Date()).getTime();
