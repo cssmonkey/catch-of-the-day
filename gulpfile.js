@@ -16,7 +16,7 @@ var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 var historyApiFallback = require('connect-history-api-fallback')
 
-
+ 
 /*
   Styles Task
 */
@@ -73,7 +73,7 @@ function buildScript(file, watch) {
     transform:  [babelify.configure({stage : 0 })]
   };
 
-  // watchify() if watch requested, otherwise run browserify() once 
+  // watchify() if watch requested, otherwise run browserify() once
   var bundler = watch ? watchify(browserify(props)) : browserify(props);
 
   function rebundle() {
