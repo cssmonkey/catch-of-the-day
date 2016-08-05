@@ -157,19 +157,22 @@ var AddFishForm = React.createClass({
   Header
 */
 var Header = React.createClass({
-  render: function() {
-    return (
-      <header className="top">
-        <h1>Catch
-            <span className="ofThe">
-                <span className="of">of</span>
-                <span className="the">the</span>
-            </span>
-         Day</h1>
-        <h3 className="tagline"><span>{this.props.tagline}</span></h3>
-      </header>
-    )
-  }
+    render: function() {
+        return (
+            <header className="top">
+                <h1>Catch
+                    <span className="ofThe">
+                    <span className="of">of</span>
+                    <span className="the">the</span>
+                    </span>
+                    Day</h1>
+                <h3 className="tagline"><span>{this.props.tagline}</span></h3>
+            </header>
+        )
+    },
+    propTypes: {
+        tagline: React.PropTypes.string.isRequired
+    }
 });
 
 /*
@@ -193,7 +196,7 @@ var Order = React.createClass({
                 </CSSTransitionGroup>
                 lbs {fish.name} {removeBtn}
             </span>
-            <span className="price">{helpers.formatPrice(count * fish.price)}</span> 
+            <span className="price">{helpers.formatPrice(count * fish.price)}</span>
           </li>
       )
   },
